@@ -4,7 +4,12 @@ class Calculadora {
         this.altura = 0;
         this.resultado = document.getElementById('messagem-resultado');
     }
-
+    formataCampoAltura() {
+        document.getElementById('campo_altura').value = this.altura;
+        if (this.altura.length > 1) {
+            this.altura = this.altura.split(',', '.');
+        }
+    }
     validacaoCampo() {
         if (this.peso === 0 || this.altura === 0) {
             this.resultado.textContent = 'Preencha os campos corretamente';
@@ -12,15 +17,14 @@ class Calculadora {
         }
         return false;
     }
-
     calculadoraIMC() {
-        this.peso = parseFloat(document.getElementById('campo_peso').value);
-        this.altura = parseFloat(document.getElementById('campo_altura').value);
+        this.peso = parseFloat(document.getElementById('campo_peso').value.split(',').join('.'));
+        this.altura = parseFloat(document.getElementById('campo_altura').value.split(',').join('.'));
 
         if (this.validacaoCampo()) return; 
 
         let imc = (this.peso / (this.altura * this.altura)).toFixed(2);
-        this.classificaIMC(imc);
+        this.classificaIMC(imc).this.value.replace('.');
     }
 
     classificaIMC(imc) {
@@ -60,5 +64,6 @@ let calculadora = new Calculadora();
 
 document.getElementById('botao_calcular').addEventListener('click', function () {
     calculadora.calculadoraIMC();
+    calculadora.formataCampoAltura();
 });
 
