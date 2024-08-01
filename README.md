@@ -16,7 +16,8 @@
 
 <h2>Projeto em ação:</h2>
 
-https://github.com/MoisesHsilva1/Calculadora-de-descontos/assets/142702205/ced25cd5-13c0-4ae5-bd46-4fa33a57d19d
+![image](https://github.com/user-attachments/assets/fc33d820-9681-4e98-8780-57d9c1f3c885)
+
 
 
 # Autor
